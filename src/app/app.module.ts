@@ -6,18 +6,23 @@ import { AppComponent } from './app.component';
 import { MaterialModule } from './material.module';
 import { HeaderComponent } from './shared/Components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import {HttpClientModule} from '@angular/common/http';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    
   ],
   imports: [
     FormsModule,
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule,
+    NgxDatatableModule
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
