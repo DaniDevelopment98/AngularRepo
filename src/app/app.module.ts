@@ -8,10 +8,11 @@ import { HeaderComponent } from './shared/Components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent
     
   ],
   imports: [

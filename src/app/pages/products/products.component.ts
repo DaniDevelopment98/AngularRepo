@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { Data } from '@angular/router';
 import { map, tap } from 'rxjs';
 import { Product } from './interface/product.interface';
 import { ProductsService } from './services/products.service';
@@ -23,11 +24,14 @@ constructor(private productSvc:ProductsService) {
    }
   ngOnInit(): void {
     
-    this.productSvc.getProducts()
+     this.productSvc.getProducts()
     .pipe(
       tap((products: Product[])=> this.products=products))
       .subscribe();
 
 }
-
+  val=Object.values(this.productSvc.getProducts()
+  .pipe(
+    tap((products: Product[])=> this.products=products))
+    .subscribe())
 }
