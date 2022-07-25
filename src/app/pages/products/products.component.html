@@ -1,3 +1,5 @@
+
+<h1>Storesssss</h1>
 <!--
 
 <div class="container" *ngFor="let product of val">
@@ -29,39 +31,14 @@
       
     </mat-card-footer>
   </mat-card>
+ 
+<pre>
+  {{products |json}}
+</pre>
+
 
 
 -->
-
-    <table  >
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">SupplierId</th>
-                <th scope="col">CategoryId</th>
-                <th scope="col">quantity</th>
-                <th scope="col">Price</th>
-                <th scope="col">Units on Order</th>
-                <th scope="col">Reorder</th>
-                <th scope="col">Discontinued</th>
-                
-            </tr>
-        </thead>  
-        <tbody>
-        <tr *ngFor="let productos of products | objToArray" > 
-            <td>{{productos.productId}}</td>
-            <td>{{productos.productName}}</td>
-            <td>{{productos.supplierId}}</td>
-            <td>{{productos.categoryId}}</td>
-            <td>{{productos.quantityPerUnit}}</td>
-            <td>{{productos.unitPrice}}</td>
-            <td>{{productos.unitsInStock}}</td>
-            <td>{{productos.unitsOnOrder}}</td>
-            <td>{{productos.reorderLevel}}</td>
-        </tr>
-        </tbody>                  
-          </table>
 
 
 

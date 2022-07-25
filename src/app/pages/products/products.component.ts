@@ -1,11 +1,10 @@
 import { Component, OnInit  } from '@angular/core';
-import { Data } from '@angular/router';
+import { FormBuilder } from '@angular/forms';
+import { ActivatedRoute, Data, Router } from '@angular/router';
 import { map, tap } from 'rxjs';
-import { Product } from './interface/product.interface';
-import { ProductsService } from './services/products.service';
-//import { ProductsService } from './services/products.service';
-
-
+import { ApiResult,ClientProducts,Product} from 'src/app/Modelos/API/apiService';
+import { ModeloTabla } from 'src/app/Modelos/Herramientas/modelos_tabla/tabla';
+import { UtileriasService } from 'src/app/Modelos/Herramientas/utilerias.service';
 
 
 @Component({
@@ -15,23 +14,40 @@ import { ProductsService } from './services/products.service';
 
 })
 
-
-
 export class ProductsComponent implements OnInit {
-products!: Product[];
 
-constructor(private productSvc:ProductsService) {
-   }
-  ngOnInit(): void {
-    
-     this.productSvc.getProducts()
+public apiProducts!:ClientProducts;
+public catalogo!:ModeloTabla;
+constructor( 
+  public route:ActivatedRoute, 
+  public router:Router,
+  public utilerias:UtileriasService,
+   
+  ) {
+
+   } ngOnInit(): void {
+    /*primera forma de traer los datos
+    this.productSvc.getProducts()
     .pipe(
       tap((products: Product[])=> this.products=products))
       .subscribe();
+      
+   */
+      this.catalogo= new ModeloTabla();
+      this.apiProducts=new ClientProducts();
+  } 
 
-}
-  val=Object.values(this.productSvc.getProducts()
-  .pipe(
-    tap((products: Product[])=> this.products=products))
-    .subscribe())
+  getTabla(){
+    this.apiProducts.getProducto().then(
+      (respuesta:ApiResult)=>{
+        this.catalogo=this.utilerias.FormatoTabla(respuesta.data,0);
+        console.log("Resultado request : ",respuesta);
+      },
+      (respuesta:any)=>{
+        var resp=JSON.parse(respuesta.response);
+      }
+    );
+  }
+
+
 }

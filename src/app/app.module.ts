@@ -8,11 +8,12 @@ import { HeaderComponent } from './shared/Components/header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
-
+import { ProductsComponent } from './pages/products/products.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ProductsComponent
     
   ],
   imports: [
@@ -23,6 +24,7 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxDatatableModule
+    
   
   ],
   providers: [],
