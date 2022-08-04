@@ -1,45 +1,42 @@
 
-<h1>Storesssss</h1>
-<!--
+<h1>Lista de Productos</h1>
 
-<div class="container" *ngFor="let product of val">
-    <section class="products">
-        <mat-card class="card" >
-        <mat-card-header></mat-card-header>
-        <mat-card-title> {{product.productName}} </mat-card-title>
-        <mat-card-content>
-          <p> {{product.supplierId}}</p>
-        </mat-card-content>
-        </mat-card>
-        </section>
+
+<div class="table">
+  <table  class="mat-elevation-z8 demo-table table-active">
+    <thead>
+      <tr>
+        <th>ProductID</th>
+        <th>CategoryID</th>
+        <th>ProductName</th>
+        <th>CuantityPerUnit</th>
+        <th>Price</th>
+        <th>Unit in Stock</th>
+        <th>unitsOnOrder</th>
+        <th>Discontinued</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let items of listProd |objToArray">
+        <td >{{items.productId}}</td>
+        <td >{{items.categoryId}}</td>
+        <td >{{items.productName}}</td>
+        <td >{{items.quantityPerUnit}}</td>
+        <td >{{items.unitPrice}}</td>
+        <td >{{items.unitsInStock}}</td>
+        <td >{{items.unitsOnOrder}}</td>
+        <td>{{items.discontinued}}</td>
+      </tr>
+    </tbody>
+
+  </table>  
 </div>
 
 
 
-
-<mat-card class="example-card" >
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    <mat-card-title></mat-card-title>
-    <mat-card-content>
-      <p>This card has divider and indeterminate progress as footer</p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
-    </mat-card-actions>
-    <mat-card-footer>
-      
-    </mat-card-footer>
-  </mat-card>
- 
-<pre>
-  {{products |json}}
-</pre>
-
-
+<!--
 
 -->
-
 
 
   

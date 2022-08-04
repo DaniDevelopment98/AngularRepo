@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ProductsRoutingModule } from './products-routing.module';
+import { OrdersRoutingModule } from './orders-routing.module';
 import { MaterialModule } from 'src/app/material.module';
+
 import { objToArrayPipe } from 'src/app/objToArray.pipe';
+
 
 
 
 @NgModule({
   declarations: [
-    //ProductsComponent,    
 
-    //ProductComponent
+
   ],
   imports: [
     CommonModule,
-    ProductsRoutingModule,
-    MaterialModule  
+    OrdersRoutingModule,
+    MaterialModule
+  
+    
   ]
 })
-export class ProductsModule { }
+export class OrdersModule { }

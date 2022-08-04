@@ -92,11 +92,10 @@ FormatoTabla(consulta:any,  id_index:number)
   // console.log("Esta es la tabla", consulta);
   var columnas:Array<ModeloColumna>=new Array<ModeloColumna>();
   var esconder:string = "";
-
-  consulta.columnas.forEach((colName,index) => {
+  //Valor que va en el foreach?
+  consulta.columnas.forEach((colName: any) => {
     // console.log("columna ", colName);
 
-  
     
     //Agregar el valor de la columna
     columnas.push(new ModeloColumna({

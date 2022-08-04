@@ -1,0 +1,30 @@
+.form-floating{
+    height: 4.5rem;
+    width: 25rem;
+  }
+
+  .demo-table {
+    width: 100%;
+  }
+  th, td {
+    width: 0%;
+    text-align: left;
+  
+  }
+  
+  .mat-row .mat-cell {
+    border-bottom: 10px solid transparent;
+    border-top: 12px solid transparent;
+    cursor: pointer;
+  }
+  
+  .mat-row:hover .mat-cell {
+    border-color: currentColor;
+  }
+  
+  .demo-row-is-clicked {
+    font-weight: bold;
+  }
+  .h1{
+    align-content: center;
+  }

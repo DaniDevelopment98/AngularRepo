@@ -1,8 +1,7 @@
 import { Component, OnInit  } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
-import { ActivatedRoute, Data, Router } from '@angular/router';
-import { map, tap } from 'rxjs';
 import { ApiResult,ClientProducts,Product} from 'src/app/Modelos/API/apiService';
+import { ServiciosService } from 'src/app/Modelos/API/servicios.service';
+import {} from 'src/app/Modelos/API/apiServiceAngular.service';
 import { ModeloTabla } from 'src/app/Modelos/Herramientas/modelos_tabla/tabla';
 import { UtileriasService } from 'src/app/Modelos/Herramientas/utilerias.service';
 
@@ -16,16 +15,10 @@ import { UtileriasService } from 'src/app/Modelos/Herramientas/utilerias.service
 
 export class ProductsComponent implements OnInit {
 
-public apiProducts!:ClientProducts;
-public catalogo!:ModeloTabla;
-constructor( 
-  public route:ActivatedRoute, 
-  public router:Router,
-  public utilerias:UtileriasService,
-   
-  ) {
+listProd:any[]=[];
 
-   } ngOnInit(): void {
+constructor( public service:ServiciosService,public utilerias:UtileriasService,){} 
+ngOnInit(): void {
     /*primera forma de traer los datos
     this.productSvc.getProducts()
     .pipe(
@@ -33,9 +26,19 @@ constructor(
       .subscribe();
       
    */
+      this.service.getProducto().subscribe(data=>{
+        this.listProd=data.data;
+      });
+
+      
+   
+      /*
       this.catalogo= new ModeloTabla();
       this.apiProducts=new ClientProducts();
+      */
   } 
+ 
+  /*Obtuve mi tabla de la siguiente manera, pero existe un error en utilerias.formatoTabla
 
   getTabla(){
     this.apiProducts.getProducto().then(
@@ -48,6 +51,6 @@ constructor(
       }
     );
   }
-
+*/
 
 }

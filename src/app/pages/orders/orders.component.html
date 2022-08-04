@@ -1,0 +1,166 @@
+    <h1> Generar Nuevo Pedido</h1>
+  
+  <div class="form-group">   
+    <div class="form-group">
+<form (ngSubmit)="onSubmit()"  [formGroup]="busqCli">
+    <!-- Busqueda del cliente-->
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Buscar Cliente" id="bus" name="bus" formControlName="bus">
+      <button class="btn btn-primary" id="btnBus" type="submit" (click)="OnClick()" >Button</button>       
+    </div>
+    <div class="table">
+      <table  class="mat-elevation-z8 demo-table table-info">
+        <thead>
+          <tr>
+            <th>Customer ID</th>
+            <th>Company name</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>Region <th>
+            <th>Postal Code</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let items of listCli | objToArray">
+            <td >{{items.customerId}}</td>
+            <td >{{items.companyName}}</td>
+            <td >{{items.address}}</td>
+            <td >{{items.city}}</td>
+            <td >{{items.postalCode}}</td>
+            <td >{{items.country}}</td>
+            </tr>
+            </tbody>
+      </table>  
+    </div>
+  </form>          
+</div>
+ 
+<!--Otros datos-->
+<div class="form-group">
+  <form (ngSubmit)="onSubmit1()"  [formGroup]="busqProd">
+      <!-- Busqueda de los Productos-->
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Buscar Producto" id="busP" name="busP" formControlName="busP">
+        <button class="btn btn-primary" id="btnBusP" type="submit" (click)="OnClick2()">Button</button>       
+      </div>
+      <div class="table">
+        <table  class="mat-elevation-z8 demo-table table-active">
+          <thead>
+            <tr>
+              <th>ProductID</th>
+              <th>CategoryID</th>
+              <th>ProductName</th>
+              <th>CuantityPerUnit</th>
+              <th>Price</th>
+              <th>Unit in Stock</th>
+              <th>unitsOnOrder</th>
+              <th>Discontinued</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let items of listProd |objToArray">
+              <td >{{items.productId}}</td>
+              <td >{{items.categoryId}}</td>
+              <td >{{items.productName}}</td>
+              <td >{{items.quantityPerUnit}}</td>
+              <td >{{items.unitPrice}}</td>
+              <td >{{items.unitsInStock}}</td>
+              <td >{{items.unitsOnOrder}}</td>
+              <td>{{items.discontinued}}</td>
+            </tr>
+          </tbody>
+
+        </table>  
+      </div>
+  </form>                                     
+  </div>
+
+
+<form (ngSubmit)="onSubmit2()"  [formGroup]="forms1">
+
+  <label class="form-label mt-4">Numero de Empleado:</label>
+
+  <div class="form-floating ">
+    
+    <select class="form-select" name="idEmp" formControlName="idEmp" id="idEmp">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+      
+        <label class="form-label mt-4">Datos del Cliente:</label>
+        
+        <div class="input-group">
+          <div class="form-floating ">
+              <input type="email" class="form-control" id="CustomerID" name="CustomerID" formControlName="CustomerID" placeholder="Nombre">
+              <label for="floatingInput">CustomerID</label>
+            </div>
+            <div class="form-floating">
+              <input type="input" class="form-control " id="ShipName" name="ShipName" formControlName="ShipName" placeholder="ShipName">
+              <label for="floatingInput">Ship Name</label>
+            </div>
+            <div class="form-floating ">
+              <input type="input" class="form-control" id="ShipAddress" name="ShipAddress" formControlName="ShipAddress" placeholder="ShipAddrees">
+              <label for="floatingInput">Ship Address</label>
+            </div>
+  
+            <div class="form-floating ">
+              <label for="floatingInput2" class="form-label mt-4">Ship Via</label>
+              <select class="form-select" name="shipVia" formControlName="shipVia" id="shipVia">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+              </select>
+            </div>
+  
+            <div class="form-floating ">
+              <input type="input" class="form-control"  name="ShipCity" formControlName="ShipCity" id="ShipCity" placeholder="City">
+              <label for="floatingInput">Ship City</label>
+            </div>
+            <div class="form-floating ">
+              <input type="input" class="form-control" name="ShipRegion" formControlName="ShipRegion" id="ShipRegion" placeholder="Region">
+              <label for="floatingInput">Ship Region</label>
+            </div>
+            <div class="form-floating ">
+              <input type="input" class="form-control" id="postalCode" name="postalCode" formControlName="postalCode"  placeholder="postalCode">
+              <label for="floatingInput">Postal Code</label>
+            </div>
+            <div class="form-floating ">
+              <input type="floatingInput" class="form-control"  name="ShipCountry" formControlName="ShipCountry"  id="ShipCountry" placeholder="Country">
+              <label for="floatingInput">ShipCountry</label>
+            </div>
+           
+          </div>
+          
+         <label class="form-label mt-4">Otros Datos:</label>
+  
+        <div class="input-group">
+          <div class="form-floating ">
+              <input type="date" class="form-control sm-4" name="rdate" formControlName="rdate"  id="rdate" placeholder="RDate">
+              <label for="floatingInput">Required Date</label>
+            </div>
+  
+            <div class="form-floating">
+           <input type="date" class="form-control" name="sdate" formControlName="sdate" placeholder="date2" id="sdate">
+           <label for="floatingInput">Shipped  Date</label>
+            </div>
+            <div class="form-floating">
+              <input type="input" class="form-control" name="Freight" formControlName="Freight" placeholder="Freight" id="Freight">
+              <label for="floatingInput">Freight</label>
+               </div>
+               
+        </div>
+  
+        <div>
+          <button type="button" class="btn btn-success">Guardar Datos</button>
+        </div>
+  
+</form>
+   
+  </div>
