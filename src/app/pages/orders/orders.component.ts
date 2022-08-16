@@ -1,7 +1,9 @@
 
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, NgModel, Validators } from '@angular/forms';
-import { Customer, ICustomer } from 'src/app/Modelos/API/apiService';
+import { tap } from 'rxjs';
+import { Customer, ICustomer, IProduct } from 'src/app/Modelos/API/apiService';
+import { Product } from 'src/app/Modelos/API/apiServiceAngular.service';
 
 
 import { ServiciosService } from 'src/app/Modelos/API/servicios.service';
@@ -13,11 +15,12 @@ import { ServiciosService } from 'src/app/Modelos/API/servicios.service';
 })
 export class OrdersComponent implements OnInit {
  
-  listCli!:any[];
-  listProd!:any[];
+  listCli:any[]=[];
+  listProd!:IProduct[];
   busqCli!:FormGroup;
   busqProd!:FormGroup;
   forms1!:FormGroup;
+  clientes!:ICustomer[]
  // val=new FormControl();
   constructor(private readonly fb:FormBuilder,public service:ServiciosService){}
 
@@ -48,30 +51,32 @@ return this.fb.group({
   }
 
   OnClick2(): void{
-    console.log('click')
+    //console.log('click')
     this.buscarProd();
   }
   OnClick(): void{
-    console.log('click')
+    //console.log('click')
     this.buscarCli();
   }
 
    
   buscarProd(){
         const id=this.busqProd.value.busP
-        this.service.getProducto2(id).subscribe(data=>{
-          this.listProd=data.data;
+        this.service.getProducto2(id)      
+        .subscribe(data=>{this.listProd=data.data;
           console.log(this.listProd);
+            /*.pipe(tap((listProd:Product[])=>this.listProd=listProd))  */             
         });
       }
-
+// tap((listCli:Customer[])=>this.listCli=listCli))
   buscarCli(){
    const id=this.busqCli.value.bus;
    
     this.service.getClient(id).subscribe(list=>{     
-      this.listCli=list.data;
+      this.listCli=list.data      
       console.log(this.listCli)
     })
+    
   }
 
 

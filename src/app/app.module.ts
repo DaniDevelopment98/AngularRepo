@@ -30,8 +30,6 @@ import { objToArrayPipe } from './objToArray.pipe';
     HttpClientModule,
     NgxDatatableModule,
     ReactiveFormsModule
-    
-  
   ],
   providers: [],
   bootstrap: [AppComponent]

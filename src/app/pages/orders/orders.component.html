@@ -1,14 +1,34 @@
     <h1> Generar Nuevo Pedido</h1>
-  
-  <div class="form-group">   
+  <!-- -->
     <div class="form-group">
-<form (ngSubmit)="onSubmit()"  [formGroup]="busqCli">
+<form  [formGroup]="busqCli">
     <!-- Busqueda del cliente-->
     <div class="input-group">
       <input type="text" class="form-control" placeholder="Buscar Cliente" id="bus" name="bus" formControlName="bus">
-      <button class="btn btn-primary" id="btnBus" type="submit" (click)="OnClick()" >Button</button>       
+      <button class="btn btn-primary" id="btnBus" type="submit" (click)="OnClick()" >Buscar</button>       
     </div>
-    <div class="table">
+
+    <mat-card class="card" *ngFor="let item of listCli|json">
+      <mat-card-header></mat-card-header>
+     <mat-card-title> Cliente
+   
+     </mat-card-title>
+      <mat-card-content>
+
+      </mat-card-content>
+     <mat-card-actions>
+      <button mat-flat-button color="primary">Seleccionar
+          <mat-icon><span  class="material-symbols-outlined">add_box</span></mat-icon>
+      </button>
+      
+     </mat-card-actions>
+      <mat-card-footer>
+          Descripcion del producto:<p></p>
+        
+      </mat-card-footer>
+  </mat-card>
+    <!--
+       <div class="table">
       <table  class="mat-elevation-z8 demo-table table-info">
         <thead>
           <tr>
@@ -33,9 +53,12 @@
             </tbody>
       </table>  
     </div>
+    -->
+   
   </form>          
 </div>
  
+
 <!--Otros datos-->
 <div class="form-group">
   <form (ngSubmit)="onSubmit1()"  [formGroup]="busqProd">
@@ -163,4 +186,4 @@
   
 </form>
    
-  </div>
+
