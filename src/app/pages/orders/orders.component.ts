@@ -14,8 +14,8 @@ import { ServiciosService } from 'src/app/Modelos/API/servicios.service';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
- 
-  listCli:any[]=[];
+ clientesLista:any=[];
+  listCli!:ICustomer[];
   listProd!:IProduct[];
   busqCli!:FormGroup;
   busqProd!:FormGroup;
@@ -70,13 +70,16 @@ return this.fb.group({
       }
 // tap((listCli:Customer[])=>this.listCli=listCli))
   buscarCli(){
-   const id=this.busqCli.value.bus;
-   
-    this.service.getClient(id).subscribe(list=>{     
-      this.listCli=list.data      
+   const id=this.busqCli.value.bus;   
+    this.service.getClient(id)
+    .subscribe( list=>{this.listCli=list.data;
+      this.clientesLista=this,this.listCli
       console.log(this.listCli)
-    })
     
+    })
+   console.log(this.clientesLista.value)
+   var lista1=Object.entries(this.listCli).map(z=>z.join(":")).join("\n")
+   console.log('es para saber que clientes trae',lista1)
   }
 
 

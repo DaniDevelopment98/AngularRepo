@@ -8,25 +8,7 @@
       <button class="btn btn-primary" id="btnBus" type="submit" (click)="OnClick()" >Buscar</button>       
     </div>
 
-    <mat-card class="card" *ngFor="let item of listCli|json">
-      <mat-card-header></mat-card-header>
-     <mat-card-title> Cliente
-   
-     </mat-card-title>
-      <mat-card-content>
 
-      </mat-card-content>
-     <mat-card-actions>
-      <button mat-flat-button color="primary">Seleccionar
-          <mat-icon><span  class="material-symbols-outlined">add_box</span></mat-icon>
-      </button>
-      
-     </mat-card-actions>
-      <mat-card-footer>
-          Descripcion del producto:<p></p>
-        
-      </mat-card-footer>
-  </mat-card>
     <!--
        <div class="table">
       <table  class="mat-elevation-z8 demo-table table-info">
@@ -82,7 +64,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let items of listProd |objToArray">
+            <tr *ngFor="let items of listProd|objToArray">
               <td >{{items.productId}}</td>
               <td >{{items.categoryId}}</td>
               <td >{{items.productName}}</td>
